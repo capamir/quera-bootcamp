@@ -38,7 +38,23 @@ html {
 }
 
 .button {
-  /* button styles here */
+  /*buttonstyleshere*/
+  margin-top: 50px;
+  font-family: "Yekan";
+  font-weight: bold;
+  font-size: 24px;
+  width: 300px;
+  height: 100px;
+  border: 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+  color: rgb(245, 245, 220);
+  background-color: rgb(94, 150, 255);
+  box-shadow: rgba(75, 93, 174, 0.37) 7px 5px 52px -4px;
 }
 .button:hover {
   background-color: rgb(77, 119, 197);
