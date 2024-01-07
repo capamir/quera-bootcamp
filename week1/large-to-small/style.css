@@ -84,9 +84,7 @@
   .card {
     font-size: 30px;
   }
-  .heading__xl {
-    display: none;
-  }
+
   .heading__lg {
     display: block;
     font-size: 30px;
@@ -107,10 +105,7 @@
   .card {
     font-size: 20px;
   }
-  .heading__xl,
-  .heading__lg {
-    display: none;
-  }
+
   .heading__md {
     display: block;
     font-size: 20px;
@@ -120,22 +115,17 @@
 @media only screen and (max-width: 640px) {
   .container {
     background: linear-gradient(
-      to right bottom,
-      rgb(57, 57, 58),
-      rgb(60, 49, 65),
-      rgb(74, 36, 59),
-      rgb(88, 16, 39),
-      rgb(90, 0, 1)
+      rgb(101, 145, 87),
+      rgb(93, 156, 96),
+      rgb(81, 166, 108),
+      rgb(61, 177, 122),
+      rgb(9, 188, 138)
     );
   }
   .card {
     font-size: 15px;
   }
-  .heading__xl,
-  .heading__lg,
-  .heading__md {
-    display: none;
-  }
+
   .heading__sm {
     display: block;
     font-size: 10px;
