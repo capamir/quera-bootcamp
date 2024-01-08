@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Styles for the modal container */
+      .modal-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      /* Styles for the element that triggers the modal on hover */
+      .trigger:hover + .modal-container {
+        display: block;
+      }
+
+      /* Additional styles for the modal content */
+      .modal-content {
+        /* Add your modal content styles here */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Element that triggers the modal on hover -->
+    <div class="trigger">Hover me to show the modal</div>
+
+    <!-- Modal container -->
+    <div class="modal-container">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>This is your modal content.</p>
+        <button>Close</button>
+      </div>
+    </div>
+  </body>
+</html>
