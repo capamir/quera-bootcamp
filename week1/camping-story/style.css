@@ -95,6 +95,9 @@ ul {
   margin: 0 auto;
 
   /* TODO: your code here... */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .tours__cards--card {
@@ -107,6 +110,10 @@ ul {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
 
   /* TODO: your code here... */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* ----------------------------------SHOP------------------------------------- */
@@ -130,4 +137,10 @@ ul {
   padding: 20px;
 
   /* TODO: your code here... */
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  grid-template-rows: repeat(3, 310px);
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
 }
