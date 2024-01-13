@@ -1,7 +1,6 @@
 {
   "name": "reminder",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "jest"
@@ -10,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.3.1"
-  }
+    "jest": "^29.7.0"
+  },
+  "description": ""
 }
