@@ -6,24 +6,25 @@ function fizz_buzz(numbers) {
     const element = numbers[i];
     console.log(element);
     if (element % 3 === 0 && element % 5 === 0) {
-      result += "FizzBuzz";
+      result += "fizzbuzz";
     } else if (element % 3 === 0) {
-      result += "Fizz";
+      result += "fizz";
     } else if (element % 5 === 0) {
-      result += "Buzz";
+      result += "buzz";
     } else {
       result += `${element}`;
     }
-
-    if (i < numbers.length) {
-      result += ", ";
+    if (numbers.length > 1) {
+      if (i < numbers.length) {
+        result += ", ";
+      }
     }
   }
 
   return result;
 }
 
-const res = fizz_buzz([1, 2, 3]);
+const res = fizz_buzz([3]);
 console.log(res);
 
 module.exports = fizz_buzz;
