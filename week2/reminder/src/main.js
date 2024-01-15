@@ -12,7 +12,7 @@ function reminder(data, currentDate) {
     const timeDifference = taskTime - currentTime;
     const hours = Math.floor(timeDifference / (1000 * 60 * 60));
     if (hours >= 3) {
-      message = `wait fot it : ${element.title}`;
+      message = `wait for it : ${element.title}`;
     } else if (hours >= 0) {
       message = `just do it : ${element.title}`;
     } else {
@@ -24,7 +24,29 @@ function reminder(data, currentDate) {
   return messages;
 }
 
-const result = reminder(tasks, "2024-01-15T18:00:00Z");
+const result = reminder(
+  [
+    {
+      id: 1,
+      title: "buy for breakfast",
+      description: "buy a bread for breakfast",
+      date: "2024-01-15T20:00:00Z",
+    },
+    {
+      id: 2,
+      title: "job interview",
+      description: "join meeting for a job interview",
+      date: "2023-12-16T14:30:00Z",
+    },
+    {
+      id: 3,
+      title: "add features",
+      description: "add new features client ask",
+      date: "2024-11-23T15:23:00Z",
+    },
+  ],
+  "2024-01-15T18:00:00Z"
+);
 console.log(result);
 
 module.exports = reminder;
