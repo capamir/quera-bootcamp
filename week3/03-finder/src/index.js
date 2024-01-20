@@ -3,6 +3,7 @@ function filterByTerm(inputArr, searchTerm) {
   if (typeof searchTerm === "undefined")
     return "searchTerm cannot be empty at filterByTerm";
 
+  searchTerm = searchTerm.toLowerCase();
   const filteredLinks = inputArr.filter((link) =>
     link.url.includes(searchTerm)
   );
@@ -15,7 +16,7 @@ const linksList = [
   { id: 3, url: "https://www.link3.dev" },
 ];
 
-const searchTerm = "url";
+const searchTerm = "link";
 const result = filterByTerm(linksList, searchTerm);
 console.log(result);
 module.exports = filterByTerm;
