@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentInput += buttonValue;
       } else {
         // If the button is an operator
+        if (firstOperand !== null) {
+          currentInput = firstOperand;
+        }
         handleOperator(buttonValue);
       }
     } else {
@@ -39,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     currentInput = "";
     operator = "";
     firstOperand = null;
-    // display.value = "0";
   }
 
   function handleOperator(operatorValue) {
@@ -54,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       operator = operatorValue;
       currentInput = "";
+
+      // Update display with the result of the current operation
+      updateDisplay();
     }
   }
 
@@ -72,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
           firstOperand *= secondOperand;
           break;
         case "/":
+          console.log(secondOperand);
           if (secondOperand !== 0) {
             firstOperand /= secondOperand;
           } else {
@@ -85,6 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Reset the operator to an empty string
       operator = "";
       currentInput = "";
+
+      // Update the display with the result
+      updateDisplay();
     }
   }
 
