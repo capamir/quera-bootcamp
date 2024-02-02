@@ -15,14 +15,17 @@ const initialState = {
 
 dayInput.addEventListener("change", (e) => {
   // TODO: store input in proper initialState key
+  initialState.day = e.target.value;
 });
 
 monthInput.addEventListener("change", (e) => {
   // TODO: store input in proper initialState key
+  initialState.month = e.target.value;
 });
 
 yearInput.addEventListener("change", (e) => {
   // TODO: store input in proper initialState key
+  initialState.year = e.target.value;
 });
 
 const calculateAge = (dateOfBirth) => {
@@ -32,9 +35,40 @@ const calculateAge = (dateOfBirth) => {
   // TODO: calculate year of age, month of age and date of age
   //  and return result array with this scheme => ['year', 'month', 'day']
   // your code here...
+  // Get the current date
+  const currentDate = new Date();
+
+  // Create a Date object for the birth date
+  const birthDate = new Date(year, month - 1, day);
+
+  // Calculate the age in years, months, and days
+  let ageYears = currentDate.getFullYear() - birthDate.getFullYear();
+  let ageMonths = currentDate.getMonth() - birthDate.getMonth();
+  let ageDays = currentDate.getDate() - birthDate.getDate();
+
+  // Adjust for negative ageMonths (current month is before birth month) or negative ageDays (current day is before birth day)
+  if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
+    ageYears--;
+    ageMonths += 12;
+  }
+
+  // Adjust for negative ageDays (current day is before birth day)
+  if (ageDays < 0) {
+    const lastMonthDays = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      0
+    ).getDate();
+    ageDays += lastMonthDays;
+    ageMonths--;
+  }
+
+  return [ageYears, ageMonths, ageDays];
 };
 
 btn.addEventListener("click", () => {
+  console.log(initialState);
+
   if (
     initialState.day &&
     initialState.month &&
