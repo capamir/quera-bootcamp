@@ -7,7 +7,7 @@ const Information = ({ formValues, onChangeValues }) => {
         type="text"
         name="firstName"
         id="firstName" /* TODO */
-        value={formValues.firstName}
+        value={formValues?.firstName}
         onChange={onChangeValues}
       />
       <label htmlFor="lastName">Last Name</label>
@@ -16,7 +16,7 @@ const Information = ({ formValues, onChangeValues }) => {
         type="text"
         name="lastName"
         id="lastName" /* TODO */
-        value={formValues.lastName}
+        value={formValues?.lastName}
         onChange={onChangeValues}
       />
     </div>

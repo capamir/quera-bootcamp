@@ -7,7 +7,7 @@ const Details = ({ formValues, onChangeValues }) => {
         type="number"
         name="phone"
         id="phone" /* TODO */
-        value={formValues.phone}
+        value={formValues?.phone}
         onChange={onChangeValues}
       />
       <label htmlFor="gender">Gender</label>
@@ -15,7 +15,7 @@ const Details = ({ formValues, onChangeValues }) => {
         data-testid="gender"
         name="gender"
         id="gender"
-        /* TODO */ value={formValues.gender}
+        /* TODO */ value={formValues?.gender}
         onChange={onChangeValues}
       >
         <option value="" className="select__item" disabled>

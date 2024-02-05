@@ -36,13 +36,13 @@ function App() {
       <div className="card">
         <div className="card__header">
           <div
-            className={`card__header-item ${step === 1 ? "current-step" : ""}`}
+            className={`card__header-item ${step >= 1 ? "current-step" : ""}`}
           >
             {" "}
             Informations
           </div>
           <div
-            className={`card__header-item ${step === 2 ? "current-step" : ""}`}
+            className={`card__header-item ${step >= 2 ? "current-step" : ""}`}
           >
             Details
           </div>
