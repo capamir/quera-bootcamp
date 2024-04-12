@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 
 const localCache = {};
 
-const useBreedList1 = (animal) => {
+export default function useBreedList(animal) {
   const [breedList, setBreedList] = useState([]);
-  const [status, setStatus] = useState("unloaded");
+  const [loading, setloading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (!animal) {
@@ -16,21 +17,22 @@ const useBreedList1 = (animal) => {
     }
 
     async function requestBreedList() {
-      setBreedList([]);
-      setStatus("loading");
-      const res = await fetch(
-        `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
-      );
-      const json = await res.json();
-      localCache[animal] = json.breeds || [];
-      setBreedList(localCache[animal]);
-      setStatus("loaded");
+      try {
+        setBreedList([]);
+        setloading(true);
+        const res = await fetch(
+          `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
+        );
+        const json = await res.json();
+        localCache[animal] = json.breeds || [];
+        setBreedList(localCache[animal]);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setloading(false);
+      }
     }
   }, [animal]);
 
-  return [breedList, status];
-};
-
-export default function useBreedList(animal) {
-  const Url = `http://pets-v2.dev-apis.com/breeds?animal=${animal}`;
+  return [breedList, loading, error];
 }

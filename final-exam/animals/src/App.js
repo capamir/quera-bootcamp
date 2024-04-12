@@ -4,14 +4,16 @@ import Animals from "./Animals";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/animals/:id" element={<Details />} />
-          <Route path="/" element={<Animals />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/animals/:id" element={<Details />} />
+            <Route path="/" element={<Animals />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+   
   );
 };
 

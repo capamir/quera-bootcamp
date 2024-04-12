@@ -80,6 +80,15 @@ export function main(words: string[]) {
     words[Math.floor(Math.random() * words.length)]
   );
 
+  const isCharInArray = (char: string, arr: string[]) => {
+    for (let i = 0; i < char.length; i++) {
+      if (!arr.includes(char[i])) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   window.addEventListener("keydown", (e) => {
     if (state.playable) {
       const letter = e.key.toLowerCase();
@@ -101,7 +110,7 @@ export function main(words: string[]) {
           }
         }
 
-        if (isAllCharsInArray(state.selectedWord, state.correctLetters)) {
+        if (isCharInArray(state.selectedWord, state.correctLetters)) {
           state.playable = false;
           displaySuccessPopup();
         } else if (state.wrongLetters.length === state.selectedWord.length) {
@@ -111,15 +120,6 @@ export function main(words: string[]) {
       }
     }
   });
-
-  function isAllCharsInArray(str: string, arr: string[]) {
-    for (let i = 0; i < str.length; i++) {
-      if (!arr.includes(str[i])) {
-        return false;
-      }
-    }
-    return true;
-  }
 
   playAgainBtn.addEventListener("click", () => {
     state = initialState(state.selectedWord);

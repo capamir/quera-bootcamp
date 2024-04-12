@@ -1,35 +1,44 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Select from "../Form/Select";
+import filterData from "../../constants/filters.json";
+import { getCourses } from "../../services/courses";
 
-const FilterRows = ({ }) => {
-  // create state to store courses received from server
-  // create state to store filterRows (array of objects)
+const FilterRows = () => {
+  const [courses, setCourses] = useState([]);
+  const [filterRows, setFilterRows] = useState([]);
 
-  // a filter row object
-  // {
-  //   id: 1,
-  //   course: "",
-  //   gender: "",
-  //   age: ""
-  // }
-
-  const handleSelect = (e) => {
-
+  const handleSelect = (e, id, name) => {
+    const value = e.target.value;
+    setFilterRows((prevRows) =>
+      prevRows.map((row) => (row.id === id ? { ...row, [name]: value } : row))
+    );
   };
 
   const addRow = () => {
-
+    setFilterRows((prevRows) => [
+      ...prevRows,
+      {
+        id: prevRows.length,
+        course: "",
+        gender: "",
+        age: "",
+      },
+    ]);
   };
 
   const removeRow = (id) => {
-
+    setFilterRows((rows) => rows.filter((row) => row.id !== id));
   };
+
+  const submitBtn = (filterRows) => {};
 
   const handleSubmitBtn = () => {
     submitBtn(filterRows);
   };
 
   const getCoursesData = async () => {
-
+    const data = await getCourses();
+    setCourses(data);
   };
 
   useEffect(() => {
@@ -42,15 +51,31 @@ const FilterRows = ({ }) => {
         <div key={filter.id}>
           <div className="filter-row">
             <label htmlFor={filter.id}>کالج</label>
-            {/* use Select component here */}
+            <Select
+              id={filter.id}
+              name={filter.name}
+              data={courses}
+              handleChange={(e) => handleSelect(e, filter.id, "course")}
+            />
             <label htmlFor={filter.id}>جنسیت</label>
-            {/* use Select component here */}
+            <Select
+              id={filter.id}
+              name={filter.name}
+              data={filterData.gender}
+              handleChange={(e) => handleSelect(e, filter.id, "gender")}
+            />
             <label htmlFor={filter.id}>سن</label>
-            {/* use Select component here */}
+            <Select
+              id={filter.id}
+              name={filter.name}
+              data={filterData.age}
+              handleChange={(e) => handleSelect(e, filter.id, "age")}
+            />
+
             <button
               data-testid="removeRowBtn"
               className="btn btn-remove"
-              onClick={() => removeRow(filter.id)}
+              onClick={filter.id !== 0 ? () => removeRow(filter.id) : () => {}}
             >
               &#10006;
             </button>

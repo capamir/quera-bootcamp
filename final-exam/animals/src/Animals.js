@@ -25,14 +25,16 @@ const animals = [
 const Animals = () => {
   return (
     <div className="animals">
-      {animals.map((item, index) => (
-        <div key={index} className="animal">
-          <img src={item.image} alt={item.animal} />
-          <Link to={`/animals/${item.animal}`} className="button">
-            {item.animal}
-          </Link>
-        </div>
-      ))}
+      {animals.map((item) => {
+        return (
+          <div key={item.animal} className="animal">
+            <img src={item.image} alt={item.animal} />
+            <Link to={`/animals/${item.animal}`} className="button">
+              {item.animal}
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -4,14 +4,10 @@ import FilterRows from "../Filter";
 
 const Students = () => {
   // create state to store students data received from server
+  const students = [];
+  const getStudentsData = async (queryString = "") => {};
 
-  const getStudentsData = async (queryString = "") => {
-   
-  };
-
-  const handleSubmitBtn = (filterRows) => {
-
-  };
+  const handleSubmitBtn = (filterRows) => {};
 
   useEffect(() => {
     getStudentsData();
@@ -24,9 +20,7 @@ const Students = () => {
       </div>
       <div className="list" data-testid="students-list">
         {students.length > 0 ? (
-          students.map((student, index) => (
-            <Student rowNumber={index} />
-          ))
+          students.map((student, index) => <Student rowNumber={index} />)
         ) : (
           <p>موردی یافت نشد!</p>
         )}
